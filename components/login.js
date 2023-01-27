@@ -2,6 +2,7 @@ import * as React from 'react';
 import { StyleSheet, Text, View, Button, TextInput, Alert } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { STYLES } from '../constants/styles'
 
 
 {/*Placeholder variable for checking login details*/}
