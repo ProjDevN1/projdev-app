@@ -17,8 +17,8 @@ const Stack = createNativeStackNavigator();
 {/*This is the main app function*/}
 export default function App() {
   return (
-    <NavigationContainer> {/*Contains the main navigation stack, don't touch unless you want to add screen*/}
-      <Stack.Navigator> {/*Under this you can add screens contained in other files to the stack*/}
+    <NavigationContainer>
+      <Stack.Navigator>
         <Stack.Screen
           name="Login"
           component={LoginScreen}

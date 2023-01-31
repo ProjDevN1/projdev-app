@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Button, TextInput, Alert } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, Alert, Pressable } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { STYLES } from '../constants/styles'
@@ -12,11 +12,13 @@ const correctLogin = true
 {/*Main loginscreen function*/}
 const LoginScreen = ({navigation, route}) => {
     return (
-      <View> {/*The content of the screen is contained in a view object, multiple of these can be stacked to style the screen*/}
+      <View>
         <Text>Login Screen</Text>
         <TextInput style={{height: 40}} placeholder="Username"/>
         <TextInput style={{height: 40}} placeholder="Password"/>
-        <Button title="Login" onPress={() => checkLogin(navigation)}/> {/*Calls the checkLogin function when the button is pressed*/}
+        <Pressable style= {STYLES.button} onPress={() => checkLogin(navigation)}>
+           <Text style={{color: 'white'}}> Login </Text>
+      </Pressable>
       </View>
     );
 };

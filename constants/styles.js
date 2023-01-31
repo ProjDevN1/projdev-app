@@ -18,4 +18,10 @@ export const STYLES = StyleSheet.create({
     example: {
         backgroundColor: 'black', 
     },
+    button: {
+        backgroundColor: 'blue',
+        borderRadius: 50,
+        width: 100,
+        height: 50,
+    },
 })
