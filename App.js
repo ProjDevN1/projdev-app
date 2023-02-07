@@ -5,10 +5,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { STYLES } from './constants/styles'
 
 
-{/*Under here imports for screens contained in other files in the components folder*/}
+{/*Under here imports for screens contained in other files in the screens folder*/}
 
-import LoginScreen from './components/login'
-import HomeScreen from './components/home';
+import LoginScreen from './screens/LoginScreen'
+import HomeScreen from './screens/HomeScreen';
 
 {/*Initializes the stack navigator module, used to navigate between screens*/}
 const Stack = createNativeStackNavigator();
