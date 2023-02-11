@@ -1,7 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, Text, View, Button, TextInput, Alert, Pressable } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { Text, View, TextInput, Alert, Pressable } from 'react-native';
 import { STYLES } from '../constants/styles'
 
 
