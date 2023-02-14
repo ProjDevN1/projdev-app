@@ -12,6 +12,7 @@ const DevScreen = ({navigation}) => {
         <Text style= {devStyles.infoText}>Navigation between the actual screens in the app will still work as intended</Text>
         <Button title="Login Screen" onPress={() => navigation.navigate('Login')}/>
         <Button title="Gig list" onPress={() => navigation.navigate('GigList')}/>
+        <Button title="Register" onPress={() => navigation.navigate('Registration')}/>
     </View>
   )
 }
