@@ -16,7 +16,7 @@ const LoginScreen = ({navigation, route}) => {
         <TextInput style={{height: 40}} placeholder="Password"/>
         <Pressable style= {STYLES.button} onPress={() => checkLogin(navigation)}>
            <Text style={{color: 'white'}}> Login </Text>
-      </Pressable>
+        </Pressable>
       </View>
     );
 };
