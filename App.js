@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import LoginScreen from './screens/LoginScreen'
 import HomeScreen from './screens/HomeScreen';
 import DevScreen from './screens/DevScreen';
+import GigListScreen from './screens/GigListScreen';
 
 //Initializes the stack navigator module, used to navigate between screens
 const Stack = createNativeStackNavigator();
@@ -21,6 +22,7 @@ export default function App() {
         <Stack.Screen name="Dev" component={DevScreen}/>
         <Stack.Screen name="Login" component={LoginScreen}/>
         <Stack.Screen name="Home" component={HomeScreen} /> 
+        <Stack.Screen name="GigList" component={GigListScreen} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );

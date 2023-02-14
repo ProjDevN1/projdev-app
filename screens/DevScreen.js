@@ -11,6 +11,7 @@ const DevScreen = ({navigation}) => {
         <Text style= {devStyles.infoText}>There is no need to style it in any way, and it will be deleted when it is no longer necessary</Text>
         <Text style= {devStyles.infoText}>Navigation between the actual screens in the app will still work as intended</Text>
         <Button title="Login Screen" onPress={() => navigation.navigate('Login')}/>
+        <Button title="Gig list" onPress={() => navigation.navigate('GigList')}/>
     </View>
   )
 }
