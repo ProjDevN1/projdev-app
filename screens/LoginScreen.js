@@ -22,9 +22,9 @@ const LoginScreen = ({ navigation, route }) => {
 					<Text style={LOGIN.errrorMsg}>
 						This is where error will appear if wrong username/password
 					</Text>
-					<Text style={LOGIN.label}>Username</Text>
+					<Text style={LOGIN.label}>Username:</Text>
 					<TextInput style={LOGIN.input} placeholder="Username" />
-					<Text style={LOGIN.label}>Password</Text>
+					<Text style={LOGIN.label}>Password:</Text>
 					<TextInput style={LOGIN.input} placeholder="Username" />
 					<Text style={LOGIN.forgotPasswordTxt}>Forgot your password?</Text>
 					<Pressable

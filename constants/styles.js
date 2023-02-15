@@ -28,7 +28,11 @@ const colorDark = "#1F5673";
 const colorDarker = "#000000";
 const colorError = "red";
 
-const font = "Roboto";
+const font = "Raleway";
+const fontMedium = "RalewayMedium";
+const fontLight = "RalewayLight";
+const fsXXXL = 68;
+const fsXXL = 52;
 const fsXL = 36;
 const fsL = 24;
 const fsM = 16;
@@ -59,31 +63,34 @@ export const LOGIN = StyleSheet.create({
 	},
 	title: {
 		fontFamily: font,
-		fontSize: fsXL,
+		fontSize: fsXXXL,
 		color: colorBase,
-		marginBottom: 24,
+		marginBottom: 36,
 	},
 
 	container: {
 		backgroundColor: colorBase,
 		borderRadius: borderRadius,
 		padding: 16,
-		width: 200,
+		width: 250,
+		marginBottom: 52,
 	},
 
 	label: {
 		fontFamily: font,
-		fontSize: fsM,
+		fontSize: fsL,
 		marginTop: 16,
 	},
 
 	input: {
 		fontSize: fsSm,
+		fontFamily: fontLight,
 		backgroundColor: colorAlt,
 		borderRadius: borderRadius,
-		padding: 8,
+		paddingVertical: 8,
+		paddingHorizontal: 12,
 		marginTop: 6,
-		marginBottom: 8,
+		marginBottom: 16,
 		borderWidth: 2,
 		borderColor: colorAccent,
 		color: colorDarker,
@@ -102,17 +109,20 @@ export const LOGIN = StyleSheet.create({
 
 	buttonTxt: {
 		fontSize: fsSm,
+		font: fontLight,
 	},
 
 	errrorMsg: {
 		color: colorError,
-		fontSize: fsXs,
+		font: fontMedium,
+		fontSize: fsSm,
 		marginBottom: 8,
 		fontStyle: "italic",
 	},
 
 	forgotPasswordTxt: {
 		color: colorDarker,
+		font: font,
 		fontStyle: "italic",
 		fontSize: fsXs,
 		textDecorationLine: "underline",
