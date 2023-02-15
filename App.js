@@ -10,6 +10,7 @@ import HomeScreen from './screens/HomeScreen';
 import DevScreen from './screens/DevScreen';
 import GigListScreen from './screens/GigListScreen';
 import RegistrationScreen from './screens/RegistrationScreen';
+import ArrivalScreen from './screens/ArrivalScreen';
 
 //Initializes the stack navigator module, used to navigate between screens
 const Stack = createNativeStackNavigator();
@@ -25,6 +26,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} /> 
         <Stack.Screen name="GigList" component={GigListScreen} /> 
         <Stack.Screen name="Registration" component={RegistrationScreen} /> 
+        <Stack.Screen name="Arrival" component={ArrivalScreen} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );

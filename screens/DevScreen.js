@@ -13,6 +13,7 @@ const DevScreen = ({navigation}) => {
         <Button title="Login Screen" onPress={() => navigation.navigate('Login')}/>
         <Button title="Gig list" onPress={() => navigation.navigate('GigList')}/>
         <Button title="Register" onPress={() => navigation.navigate('Registration')}/>
+        <Button title="Arrival" onPress={() => navigation.navigate('Arrival')}/>
     </View>
   )
 }
