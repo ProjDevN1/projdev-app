@@ -28,7 +28,7 @@ const colorDark = "#1F5673";
 const colorDarker = "#000000";
 const colorError = "red";
 
-const font = "Raleway";
+const font = "Roboto";
 const fsXL = 36;
 const fsL = 24;
 const fsM = 16;
@@ -114,7 +114,6 @@ export const LOGIN = StyleSheet.create({
 	forgotPasswordTxt: {
 		color: colorDarker,
 		fontStyle: "italic",
-		fontWeight: 100,
 		fontSize: fsXs,
 		textDecorationLine: "underline",
 		marginVertical: 12,
