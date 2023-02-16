@@ -6,7 +6,7 @@ import { useFonts } from "expo-font";
 //Under here imports for screens contained in other files in the screens folder
 
 import LoginScreen from "./screens/LoginScreen";
-import HomeScreen from "./screens/HomeScreen";
+import LandingScreen from "./screens/LandingScreen";
 import DevScreen from "./screens/DevScreen";
 import GigListScreen from "./screens/GigListScreen";
 import RegistrationScreen from "./screens/RegistrationScreen";
@@ -31,8 +31,8 @@ export default function App() {
 		<NavigationContainer>
 			<Stack.Navigator>
 				<Stack.Screen name="Dev" component={DevScreen} />
+				<Stack.Screen name="Landing" component={LandingScreen} />
 				<Stack.Screen name="Login" component={LoginScreen} />
-				<Stack.Screen name="Home" component={HomeScreen} />
 				<Stack.Screen name="GigList" component={GigListScreen} />
 				<Stack.Screen name="Registration" component={RegistrationScreen} />
 				<Stack.Screen name="Arrival" component={ArrivalScreen} />
