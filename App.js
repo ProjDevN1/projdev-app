@@ -2,7 +2,6 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
-
 //Under here imports for screens contained in other files in the screens folder
 
 import LoginScreen from "./screens/LoginScreen";
@@ -17,10 +16,12 @@ const Stack = createNativeStackNavigator();
 
 //This is the main app function
 export default function App() {
+	//Imported fonts - can't assign weight - each weight is imported seperately
 	const [fontsLoaded] = useFonts({
 		Raleway: require("./assets/fonts/Raleway/Raleway-VariableFont_wght.ttf"),
 		RalewayMedium: require("./assets/fonts/Raleway/static/Raleway-Medium.ttf"),
 		RalewayLight: require("./assets/fonts/Raleway/static/Raleway-Light.ttf"),
+		RalewayBold: require("./assets/fonts/Raleway/static/Raleway-Bold.ttf"),
 	});
 
 	if (!fontsLoaded) {

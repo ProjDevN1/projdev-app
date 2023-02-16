@@ -21,8 +21,8 @@ To use the styles, give the object in the app code the style attribute with STYL
 }
 
 //Global variables
-const colorBase = "#E9E9E9";
-const colorAlt = "#CCD2D6";
+const colorBase = "#E9EDF0";
+const colorAlt = "#E8EAEC";
 const colorAccent = "#389ADE";
 const colorDark = "#1F5673";
 const colorDarker = "#000000";
@@ -31,6 +31,7 @@ const colorError = "red";
 const font = "Raleway";
 const fontMedium = "RalewayMedium";
 const fontLight = "RalewayLight";
+const fontBold = "RalewayBold";
 const fsXXXL = 68;
 const fsXXL = 52;
 const fsXL = 36;
@@ -48,44 +49,36 @@ export const STYLES = StyleSheet.create({
 	},
 
 	example: {
-		//backgroundColor: "white",
+		backgroundColor: "white",
 	},
 });
 
-export const LAYOUT = StyleSheet.create({});
-
-export const LOGIN = StyleSheet.create({
-	contentWrapper: {
-		backgroundColor: colorAccent,
-		flex: 1,
-		alignItems: "center",
-		justifyContent: "center",
-	},
+//Global styles for elements - should consist only of colors pretty much
+export const ELSTYLES = StyleSheet.create({
 	title: {
 		fontFamily: font,
 		fontSize: fsXXXL,
 		color: colorBase,
-		marginBottom: 36,
+		marginBottom: 16,
+	},
+	titleSm: {
+		fontFamily: fontMedium,
+		fontSize: fsL,
+		color: colorBase,
 	},
 
-	container: {
-		backgroundColor: colorBase,
-		borderRadius: borderRadius,
-		padding: 16,
-		width: 250,
-		marginBottom: 52,
+	txtL: {
+		fontSize: fsL,
 	},
-
 	label: {
 		fontFamily: font,
 		fontSize: fsL,
 		marginTop: 16,
 	},
-
 	input: {
 		fontSize: fsSm,
 		fontFamily: fontLight,
-		backgroundColor: colorAlt,
+		backgroundColor: colorBase,
 		borderRadius: borderRadius,
 		paddingVertical: 8,
 		paddingHorizontal: 12,
@@ -97,19 +90,28 @@ export const LOGIN = StyleSheet.create({
 	},
 
 	button: {
-		backgroundColor: colorAlt,
-		alignSelf: "flex-start",
-		paddingVertical: 8,
-		paddingHorizontal: 16,
+		backgroundColor: colorBase,
 		borderRadius: borderRadius,
 		borderColor: colorAccent,
 		borderWidth: 2,
 		color: colorDark,
+		margin: 4,
+	},
+	buttonPressed: {
+		backgroundColor: colorAccent,
+		borderRadius: borderRadius,
+		borderColor: colorBase,
+		borderWidth: 2,
+		margin: 4,
 	},
 
 	buttonTxt: {
-		fontSize: fsSm,
-		font: fontLight,
+		font: font,
+		color: colorAccent,
+	},
+	buttonTxtPressed: {
+		font: font,
+		color: colorBase,
 	},
 
 	errrorMsg: {
@@ -127,5 +129,60 @@ export const LOGIN = StyleSheet.create({
 		fontSize: fsXs,
 		textDecorationLine: "underline",
 		marginVertical: 12,
+	},
+});
+
+//login layout and element specifics
+export const LOGIN = StyleSheet.create({
+	bgColors: () => ({
+		color1: colorAccent,
+		color2: colorDark,
+	}),
+	contentWrapper: {
+		flex: 1,
+		alignItems: "center",
+		justifyContent: "center",
+	},
+
+	container: {
+		backgroundColor: colorAlt,
+		borderRadius: borderRadius,
+		padding: 16,
+		width: 250,
+		marginBottom: 52,
+	},
+
+	loginBtn: {
+		alignSelf: "flex-start",
+		paddingHorizontal: "8%",
+		paddingVertical: "4%",
+	},
+});
+
+//landing layout and element specifics
+export const LANDING = StyleSheet.create({
+	bgColors: () => ({
+		color1: colorAccent,
+		color2: colorDark,
+	}),
+	contentWrapper: {
+		flex: 1,
+		justifyContent: "space-around",
+		paddingHorizontal: 50,
+	},
+	buttonWrapper: {
+		flex: 1,
+		flexDirection: "row",
+		justifyContent: "center",
+	},
+	buttonLanding: {
+		alignSelf: "center",
+		flex: 1,
+		alignItems: "center",
+		paddingVertical: "8%",
+	},
+	titleWrapper: {
+		flex: 1,
+		justifyContent: "center",
 	},
 });
