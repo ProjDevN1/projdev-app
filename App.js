@@ -21,6 +21,7 @@ export default function App() {
 		Raleway: require("./assets/fonts/Raleway/Raleway-VariableFont_wght.ttf"),
 		RalewayMedium: require("./assets/fonts/Raleway/static/Raleway-Medium.ttf"),
 		RalewayLight: require("./assets/fonts/Raleway/static/Raleway-Light.ttf"),
+		RalewayBold: require("./assets/fonts/Raleway/static/Raleway-Bold.ttf"),
 	});
 
 	if (!fontsLoaded) {

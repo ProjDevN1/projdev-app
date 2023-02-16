@@ -31,6 +31,7 @@ const colorError = "red";
 const font = "Raleway";
 const fontMedium = "RalewayMedium";
 const fontLight = "RalewayLight";
+const fontBold = "RalewayBold";
 const fsXXXL = 68;
 const fsXXL = 52;
 const fsXL = 36;
@@ -48,16 +49,26 @@ export const STYLES = StyleSheet.create({
 	},
 
 	example: {
-		//backgroundColor: "white",
+		backgroundColor: "white",
 	},
 });
 
+//Global styles for elements - should consist only of colors pretty much
 export const ELSTYLES = StyleSheet.create({
 	title: {
 		fontFamily: font,
 		fontSize: fsXXXL,
 		color: colorBase,
-		marginBottom: 36,
+		marginBottom: 16,
+	},
+	titleSm: {
+		fontFamily: fontMedium,
+		fontSize: fsL,
+		color: colorBase,
+	},
+
+	txtL: {
+		fontSize: fsL,
 	},
 	label: {
 		fontFamily: font,
@@ -80,31 +91,25 @@ export const ELSTYLES = StyleSheet.create({
 
 	button: {
 		backgroundColor: colorBase,
-		alignSelf: "flex-start",
-		paddingVertical: 8,
-		paddingHorizontal: 16,
 		borderRadius: borderRadius,
 		borderColor: colorAccent,
 		borderWidth: 2,
 		color: colorDark,
+		margin: 4,
 	},
 	buttonPressed: {
 		backgroundColor: colorAccent,
-		alignSelf: "flex-start",
-		paddingVertical: 8,
-		paddingHorizontal: 16,
 		borderRadius: borderRadius,
 		borderColor: colorBase,
 		borderWidth: 2,
+		margin: 4,
 	},
 
 	buttonTxt: {
-		fontSize: fsSm,
 		font: font,
 		color: colorAccent,
 	},
 	buttonTxtPressed: {
-		fontSize: fsSm,
 		font: font,
 		color: colorBase,
 	},
@@ -127,8 +132,7 @@ export const ELSTYLES = StyleSheet.create({
 	},
 });
 
-export const LAYOUT = StyleSheet.create({});
-
+//login layout and element specifics
 export const LOGIN = StyleSheet.create({
 	bgColors: () => ({
 		color1: colorAccent,
@@ -146,5 +150,39 @@ export const LOGIN = StyleSheet.create({
 		padding: 16,
 		width: 250,
 		marginBottom: 52,
+	},
+
+	loginBtn: {
+		alignSelf: "flex-start",
+		paddingHorizontal: "8%",
+		paddingVertical: "4%",
+	},
+});
+
+//landing layout and element specifics
+export const LANDING = StyleSheet.create({
+	bgColors: () => ({
+		color1: colorAccent,
+		color2: colorDark,
+	}),
+	contentWrapper: {
+		flex: 1,
+		justifyContent: "space-around",
+		paddingHorizontal: 50,
+	},
+	buttonWrapper: {
+		flex: 1,
+		flexDirection: "row",
+		justifyContent: "center",
+	},
+	buttonLanding: {
+		alignSelf: "center",
+		flex: 1,
+		alignItems: "center",
+		paddingVertical: "8%",
+	},
+	titleWrapper: {
+		flex: 1,
+		justifyContent: "center",
 	},
 });

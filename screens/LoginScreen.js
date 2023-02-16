@@ -1,8 +1,6 @@
 import * as React from "react";
 import { Text, View, TextInput, Alert, Pressable } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-
-import { STYLES } from "../constants/styles";
 import { ELSTYLES } from "../constants/styles";
 import { LOGIN } from "../constants/styles";
 
@@ -49,10 +47,12 @@ const LoginScreen = ({ navigation, route }) => {
 
 					{/*to animate pressable we creat a variable - if there are multiple buttons,
 					then diffrent variable names*/}
+
 					<Pressable
-						style={({ pressed }) =>
-							pressed ? ELSTYLES.buttonPressed : ELSTYLES.button
-						}
+						style={({ pressed }) => [
+							pressed ? ELSTYLES.buttonPressed : ELSTYLES.button,
+							LOGIN.loginBtn,
+						]}
 						onPress={() => checkLogin(navigation)}>
 						{/*we pass the variable to any child elements that need to be changed
 						when pressed, in this case the inner text*/}
