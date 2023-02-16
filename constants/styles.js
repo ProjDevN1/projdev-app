@@ -21,8 +21,8 @@ To use the styles, give the object in the app code the style attribute with STYL
 }
 
 //Global variables
-const colorBase = "#E9E9E9";
-const colorAlt = "#CCD2D6";
+const colorBase = "#E9EDF0";
+const colorAlt = "#E8EAEC";
 const colorAccent = "#389ADE";
 const colorDark = "#1F5673";
 const colorDarker = "#000000";
@@ -52,40 +52,22 @@ export const STYLES = StyleSheet.create({
 	},
 });
 
-export const LAYOUT = StyleSheet.create({});
-
-export const LOGIN = StyleSheet.create({
-	contentWrapper: {
-		backgroundColor: colorAccent,
-		flex: 1,
-		alignItems: "center",
-		justifyContent: "center",
-	},
+export const ELSTYLES = StyleSheet.create({
 	title: {
 		fontFamily: font,
 		fontSize: fsXXXL,
 		color: colorBase,
 		marginBottom: 36,
 	},
-
-	container: {
-		backgroundColor: colorBase,
-		borderRadius: borderRadius,
-		padding: 16,
-		width: 250,
-		marginBottom: 52,
-	},
-
 	label: {
 		fontFamily: font,
 		fontSize: fsL,
 		marginTop: 16,
 	},
-
 	input: {
 		fontSize: fsSm,
 		fontFamily: fontLight,
-		backgroundColor: colorAlt,
+		backgroundColor: colorBase,
 		borderRadius: borderRadius,
 		paddingVertical: 8,
 		paddingHorizontal: 12,
@@ -97,7 +79,7 @@ export const LOGIN = StyleSheet.create({
 	},
 
 	button: {
-		backgroundColor: colorAlt,
+		backgroundColor: colorBase,
 		alignSelf: "flex-start",
 		paddingVertical: 8,
 		paddingHorizontal: 16,
@@ -106,10 +88,25 @@ export const LOGIN = StyleSheet.create({
 		borderWidth: 2,
 		color: colorDark,
 	},
+	buttonPressed: {
+		backgroundColor: colorAccent,
+		alignSelf: "flex-start",
+		paddingVertical: 8,
+		paddingHorizontal: 16,
+		borderRadius: borderRadius,
+		borderColor: colorBase,
+		borderWidth: 2,
+	},
 
 	buttonTxt: {
 		fontSize: fsSm,
-		font: fontLight,
+		font: font,
+		color: colorAccent,
+	},
+	buttonTxtPressed: {
+		fontSize: fsSm,
+		font: font,
+		color: colorBase,
 	},
 
 	errrorMsg: {
@@ -127,5 +124,27 @@ export const LOGIN = StyleSheet.create({
 		fontSize: fsXs,
 		textDecorationLine: "underline",
 		marginVertical: 12,
+	},
+});
+
+export const LAYOUT = StyleSheet.create({});
+
+export const LOGIN = StyleSheet.create({
+	bgColors: () => ({
+		color1: colorAccent,
+		color2: colorDark,
+	}),
+	contentWrapper: {
+		flex: 1,
+		alignItems: "center",
+		justifyContent: "center",
+	},
+
+	container: {
+		backgroundColor: colorAlt,
+		borderRadius: borderRadius,
+		padding: 16,
+		width: 250,
+		marginBottom: 52,
 	},
 });

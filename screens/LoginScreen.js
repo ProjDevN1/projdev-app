@@ -1,7 +1,9 @@
 import * as React from "react";
 import { Text, View, TextInput, Alert, Pressable } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+
 import { STYLES } from "../constants/styles";
-import { LAYOUT } from "../constants/styles";
+import { ELSTYLES } from "../constants/styles";
 import { LOGIN } from "../constants/styles";
 
 {
@@ -13,28 +15,59 @@ const correctLogin = true;
 	/*Main loginscreen function*/
 }
 const LoginScreen = ({ navigation, route }) => {
-	return (
-		<View style={LOGIN.contentWrapper}>
-			<View>
-				<Text style={LOGIN.title}>Log in</Text>
+	//Gradient object
+	let [gradientOptions, setGradientOptions] = React.useState({
+		colors: [LOGIN.bgColors().color1, LOGIN.bgColors().color2],
+		start: { x: 0, y: 0 },
+		end: { x: 0.5, y: 1 },
+	});
 
+	return (
+		<LinearGradient
+			style={LOGIN.contentWrapper}
+			colors={gradientOptions.colors}
+			start={gradientOptions.start}
+			end={gradientOptions.end}>
+			<View>
+				{/*title*/}
+				<Text style={ELSTYLES.title}>Log in</Text>
+
+				{/*container*/}
 				<View style={LOGIN.container}>
-					<Text style={LOGIN.errrorMsg}>
+					<Text style={ELSTYLES.errrorMsg}>
 						This is where error will appear if wrong username/password
 					</Text>
-					<Text style={LOGIN.label}>Username:</Text>
-					<TextInput style={LOGIN.input} placeholder="Username" />
-					<Text style={LOGIN.label}>Password:</Text>
-					<TextInput style={LOGIN.input} placeholder="Username" />
-					<Text style={LOGIN.forgotPasswordTxt}>Forgot your password?</Text>
+					<Text style={ELSTYLES.label}>Username:</Text>
+					<TextInput style={ELSTYLES.input} placeholder="Username" />
+					<Text style={ELSTYLES.label}>Password:</Text>
+					<TextInput
+						style={ELSTYLES.input}
+						secureTextEntry={true}
+						placeholder="Password"
+					/>
+					<Text style={ELSTYLES.forgotPasswordTxt}>Forgot your password?</Text>
+
+					{/*to animate pressable we creat a variable - if there are multiple buttons,
+					then diffrent variable names*/}
 					<Pressable
-						style={LOGIN.button}
+						style={({ pressed }) =>
+							pressed ? ELSTYLES.buttonPressed : ELSTYLES.button
+						}
 						onPress={() => checkLogin(navigation)}>
-						<Text style={LOGIN.buttonTxt}> Login </Text>
+						{/*we pass the variable to any child elements that need to be changed
+						when pressed, in this case the inner text*/}
+						{({ pressed }) => (
+							<Text
+								style={
+									pressed ? ELSTYLES.buttonTxtPressed : ELSTYLES.buttonTxt
+								}>
+								Login
+							</Text>
+						)}
 					</Pressable>
 				</View>
 			</View>
-		</View>
+		</LinearGradient>
 	);
 };
 
@@ -49,7 +82,7 @@ const checkLogin = (navigation) => {
 		{
 			/*Uses the navigation module to switch to the home screen in the navigation stack*/
 		}
-		navigation.navigate("Home");
+		navigation.navigate("Landing");
 	} else {
 		Alert.alert(
 			"Incorrect login",
