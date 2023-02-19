@@ -2,6 +2,7 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
+
 //Under here imports for screens contained in other files in the screens folder
 
 import LoginScreen from "./screens/LoginScreen";
@@ -10,6 +11,8 @@ import DevScreen from "./screens/DevScreen";
 import GigListScreen from "./screens/GigListScreen";
 import RegistrationScreen from "./screens/RegistrationScreen";
 import ArrivalScreen from "./screens/ArrivalScreen";
+import ActiveGigsScreen from "./screens/ActiveGigsScreen";
+import DrivingScreen from "./screens/DrivingScreen";
 
 //Initializes the stack navigator module, used to navigate between screens
 const Stack = createNativeStackNavigator();
@@ -35,7 +38,9 @@ export default function App() {
 				<Stack.Screen name="Landing" component={LandingScreen} />
 				<Stack.Screen name="Login" component={LoginScreen} />
 				<Stack.Screen name="GigList" component={GigListScreen} />
+				<Stack.Screen name="ActiveGigs" component={ActiveGigsScreen} />
 				<Stack.Screen name="Registration" component={RegistrationScreen} />
+				<Stack.Screen name="Driving" component={DrivingScreen} />
 				<Stack.Screen name="Arrival" component={ArrivalScreen} />
 			</Stack.Navigator>
 		</NavigationContainer>
