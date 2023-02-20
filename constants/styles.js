@@ -73,6 +73,11 @@ export const ELSTYLES = StyleSheet.create({
 	label: {
 		fontFamily: font,
 		fontSize: fsL,
+		marginTop: 6,
+	},
+	labelM: {
+		fontFamily: font,
+		fontSize: fsM,
 		marginTop: 16,
 	},
 	input: {
@@ -82,8 +87,8 @@ export const ELSTYLES = StyleSheet.create({
 		borderRadius: borderRadius,
 		paddingVertical: 8,
 		paddingHorizontal: 12,
-		marginTop: 6,
-		marginBottom: 16,
+		marginTop: 8,
+		marginBottom: 8,
 		borderWidth: 2,
 		borderColor: colorAccent,
 		color: colorDarker,
@@ -95,14 +100,14 @@ export const ELSTYLES = StyleSheet.create({
 		borderColor: colorAccent,
 		borderWidth: 2,
 		color: colorDark,
-		margin: 4,
+		marginVertical: 4,
 	},
 	buttonPressed: {
 		backgroundColor: colorAccent,
 		borderRadius: borderRadius,
 		borderColor: colorBase,
 		borderWidth: 2,
-		margin: 4,
+		marginVertical: 4,
 	},
 
 	buttonTxt: {
@@ -184,5 +189,39 @@ export const LANDING = StyleSheet.create({
 	titleWrapper: {
 		flex: 1,
 		justifyContent: "center",
+	},
+});
+
+//register layout
+export const REGISTER = StyleSheet.create({
+	bgColors: () => ({
+		color1: colorAccent,
+		color2: colorDark,
+	}),
+
+	screenWrapper: {
+		backgroundColor: colorAccent,
+		flex: 1,
+		alignItems: "center",
+		justifyContent: "center",
+	},
+	inputContainer: {
+		backgroundColor: colorAlt,
+		padding: 16,
+		width: 250,
+		borderRadius: borderRadius,
+	},
+
+	registerBtn: {
+		alignSelf: "flex-start",
+		paddingHorizontal: "8%",
+		paddingVertical: "4%",
+		fontSize: fsXL,
+	},
+
+	addLicenceBtn: {
+		paddingVertical: "4%",
+		textAlign: "center",
+		fontSize: fsSm,
 	},
 });
