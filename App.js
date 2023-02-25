@@ -14,6 +14,9 @@ import ArrivalScreen from "./screens/ArrivalScreen";
 import ActiveGigsScreen from "./screens/ActiveGigsScreen";
 import DrivingScreen from "./screens/DrivingScreen";
 import AddPicsAndInfo from "./screens/AddPicsAndInfo";
+import ForgotPassword from "./screens/ForgotPasswordScreen";
+import GigApply from "./screens/GigApplyScreen";
+import GigStart from "./screens/GigStartScreen";
 
 //Initializes the stack navigator module, used to navigate between screens
 const Stack = createNativeStackNavigator();
@@ -44,6 +47,9 @@ export default function App() {
 				<Stack.Screen name="Driving" component={DrivingScreen} />
 				<Stack.Screen name="Arrival" component={ArrivalScreen} />
 				<Stack.Screen name="AddPicInfo" component={AddPicsAndInfo} />
+				<Stack.Screen name="ForgotPassword" component={ForgotPassword}/>
+				<Stack.Screen name="GigApply" component={GigApply}/>
+				<Stack.Screen name="GigStart" component={GigStart}/>	
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
