@@ -70,6 +70,10 @@ export const ELSTYLES = StyleSheet.create({
 	txtL: {
 		fontSize: fsL,
 	},
+
+	txt: {
+		fontSize: fsSm,
+	},
 	label: {
 		fontFamily: font,
 		fontSize: fsL,
@@ -223,5 +227,26 @@ export const REGISTER = StyleSheet.create({
 		paddingVertical: "4%",
 		textAlign: "center",
 		fontSize: fsSm,
+	},
+});
+
+//forgot password layout
+export const FORGOTPASS = StyleSheet.create({
+	forgotWrapper: {
+		backgroundColor: colorAccent,
+		flex: 1,
+		justifyContent: "center",
+		alignItems: "center",
+	},
+	contentWrapper: {
+		backgroundColor: colorAlt,
+		padding: 8,
+		width: "60%",
+		borderRadius: borderRadius,
+		margin: 8,
+	},
+	submitBtn: {
+		alignSelf: "flex-start",
+		padding: 8,
 	},
 });
