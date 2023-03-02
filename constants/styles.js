@@ -250,3 +250,55 @@ export const FORGOTPASS = StyleSheet.create({
 		padding: 8,
 	},
 });
+
+//add pics and info layout
+export const ADDPICTURES = StyleSheet.create({
+	screenWrapper: {
+		backgroundColor: colorAccent,
+		flex: 1,
+		justifyContent: "space-around",
+		alignItems: "center",
+		flexDirection: "column",
+	},
+	contentWrapperTopBottom: {
+		flex: 1,
+		flexDirection: "row",
+		justifyContent: "center",
+		justifyContent: "space-around",	
+	},
+	contentWrapperMiddle: {
+		flex: 1,
+		justifyContent: "center",
+		justifyContent: "space-around",
+	},
+	innerContentWrapper1: {
+		backgroundColor: colorAlt,
+		padding: 16,
+		width: 250,
+		borderRadius: borderRadius,
+		flexDirection: "row",
+		alignItems: "center",
+	},
+	innerContentWrapper2: {
+		backgroundColor: colorAlt,
+		padding: 16,
+		width: 250,
+		borderRadius: borderRadius,
+		alignItems: "center",
+	},
+	addPicsBtn: {
+		alignSelf: "center",
+		flex: 1,
+		alignItems: "center",
+		paddingVertical: "8%",
+		margin: "8%",
+	},
+	roundBtn: {
+		backgroundColor: colorBase,
+		borderRadius: 100,
+		borderColor: colorAccent,
+		borderWidth: 2,
+		color: colorDark,
+		margin: 8,
+	},
+});

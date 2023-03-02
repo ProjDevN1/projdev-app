@@ -1,39 +1,47 @@
-import { View, Text, Pressable, TextInput } from 'react-native'
-import React from 'react'
+import { View, Text, Pressable, TextInput } from 'react-native';
+import React from 'react';
+import { ADDPICTURES } from '../constants/styles';
+import { ELSTYLES } from '../constants/styles';
 
 const AddPicsAndInfo = () => {
-  return (
-    <View>
-      <Text>Add Pics And Info</Text>
+    return (
+        <View style={ADDPICTURES.screenWrapper}>
 
-    {/*Upper right question mark*/}
-      <Pressable>
-        <Text>?</Text>  
-      </Pressable>
+            <View style={ADDPICTURES.contentWrapperTopBottom}>
+                <Text style={ELSTYLES.titleSm}>Add Pics And Info</Text>
+                <Pressable style={ADDPICTURES.roundBtn}>
+                    <Text style={ELSTYLES.buttonTxt}>?</Text>
+                </Pressable>
+                </View>
+            
+            <View style={ADDPICTURES.contentWrapperMiddle}>
+                
+                <View style={ADDPICTURES.innerContentWrapper1}>
+                    <Pressable style={[ELSTYLES.button, ADDPICTURES.addPicsBtn]}>
+                        <Text style={ELSTYLES.buttonTxt}>Camera</Text>
+                    </Pressable>
+                    <Pressable style={[ELSTYLES.button, ADDPICTURES.addPicsBtn]}>
+                        <Text style={ELSTYLES.buttonTxt}>Gallery</Text>
+                    </Pressable>
+                      </View>
+                  
+                  
+                <View style={ADDPICTURES.innerContentWrapper2}>
+                    <TextInput placeholder="Give additional info about the vehicle" style={ELSTYLES.input}></TextInput>
+                </View>
+                </View>
 
-    {/*Left "text" button*/}
-      <Pressable>
-        <Text>Text</Text>    
-      </Pressable>  
-
-    {/*Right "text" button*/}
-      <Pressable> 
-        <Text>Text</Text>   
-      </Pressable>
-
-    {/*Info text box*/}
-      <TextInput placeholder='Info text goes here'></TextInput>
-
-    {/*Back button*/}
-      <Pressable>
-        <Text>Back</Text>
-      </Pressable>
-    {/*Next button*/}
-      <Pressable>
-        <Text>Next</Text>
-      </Pressable>
-    </View>
-  )
-}
+            <View style={ADDPICTURES.contentWrapperTopBottom}>
+                <Pressable style={ADDPICTURES.roundBtn}>
+                    <Text style={ELSTYLES.buttonTxt}>Back</Text>
+                </Pressable>
+                <Pressable style={ADDPICTURES.roundBtn}>
+                    <Text style={ELSTYLES.buttonTxt}>Next</Text>
+                </Pressable>
+            </View>
+ 
+        </View>
+    );
+};
 
 export default AddPicsAndInfo
