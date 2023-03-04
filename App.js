@@ -3,6 +3,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
 
+//Database related imports
+import { signInAnonymously } from "firebase/auth";
+import { auth } from "./firebaseConfig.js";
+
+
 //Under here imports for screens contained in other files in the screens folder
 
 import LoginScreen from "./screens/LoginScreen";
@@ -17,6 +22,11 @@ import AddPicsAndInfo from "./screens/AddPicsAndInfo";
 import ForgotPassword from "./screens/ForgotPasswordScreen";
 import GigApply from "./screens/GigApplyScreen";
 import GigStart from "./screens/GigStartScreen";
+
+//Temporary screen for backend work
+import DatabaseTestingScreen from "./screens/DatabaseTestingScreen";
+
+
 
 //Initializes the stack navigator module, used to navigate between screens
 const Stack = createNativeStackNavigator();
@@ -35,6 +45,17 @@ export default function App() {
 		return undefined;
 	}
 
+	// This function autenthicates to firebase, allowing the app to access the database
+	signInAnonymously(auth)
+  		.then(() => {
+    		console.log('Auth successful');
+  		})
+  		.catch((error) => {
+    		const errorCode = error.code;
+    		const errorMessage = error.message;
+  		});
+
+
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
@@ -49,7 +70,11 @@ export default function App() {
 				<Stack.Screen name="AddPicInfo" component={AddPicsAndInfo} />
 				<Stack.Screen name="ForgotPassword" component={ForgotPassword}/>
 				<Stack.Screen name="GigApply" component={GigApply}/>
-				<Stack.Screen name="GigStart" component={GigStart}/>	
+				<Stack.Screen name="GigStart" component={GigStart}/>
+
+				<Stack.Screen name="DBTest" component={DatabaseTestingScreen}/>	
+
+				
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

@@ -21,6 +21,9 @@ const DevScreen = ({navigation}) => {
         <Button title="Forgot password screen" onPress={() => navigation.navigate('ForgotPassword')}/>
         <Button title="Gig apply screen" onPress={() => navigation.navigate('GigApply')}/>
         <Button title="Start gig screen" onPress={() => navigation.navigate('GigStart')}/>
+
+        <Text>Danger zone, don't touch unless you know what you are doing</Text>
+        <Button title="DB Testing" onPress={() => navigation.navigate('DBTest')}/>
     </View>
   )
 }
