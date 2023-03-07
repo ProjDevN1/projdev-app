@@ -310,3 +310,45 @@ export const ADDPICTURES = StyleSheet.create({
 		margin: 8,
 	},
 });
+
+//start gig map layout
+export const STARTGIG = StyleSheet.create({
+	screenWrapper: {
+		flex: 1,
+		backgroundColor: colorAccent,
+	},
+	mapWrapper: {
+		flex: 1,
+		backgroundColor: colorBase,
+	},
+	infoWrapper: {
+		flex: 1,
+		justifyContent: "space-between",
+		padding: 24,
+	},
+
+	infoBtnWrapper: {
+		backgroundColor: "red",
+		position: "absolute",
+		right: 0,
+	},
+
+	ratingWrapper: {
+		position: "absolute",
+		top: 0,
+		left: 0,
+		right: 0,
+		justifyContent: "center",
+		alignItems: "center",
+	},
+
+	rating: {
+		backgroundColor: colorBase,
+	},
+
+	buttonWrapper: {
+		width: "100%",
+		flexDirection: "row",
+		justifyContent: "space-evenly",
+	},
+});
