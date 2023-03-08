@@ -9,36 +9,52 @@ only thing changing is that the apply-button changes to start-button*/
 const GigStartScreen = () => {
 	return (
 		<View style={STARTGIG.screenWrapper}>
+			{/*Actual map*/}
 			<View style={STARTGIG.mapWrapper}>
 				<Text style={{ fontSize: 36 }}>Map goes here</Text>
 			</View>
+			{/*Search/info buttons - absolute element */}
 			<View style={STARTGIG.infoBtnWrapper}>
-				<Pressable>
-					<Text>Settings icon here</Text>
+				<Pressable style={ELSTYLES.buttonRound}>
+					<Text>S</Text>
 				</Pressable>
 
-				<Pressable>
-					<Text>Find icon here </Text>
+				<Pressable style={ELSTYLES.buttonRound}>
+					<Text>F</Text>
 				</Pressable>
 			</View>
+
+			{/*bottom half*/}
 			<View style={STARTGIG.infoWrapper}>
+				{/*rating - absolute element*/}
 				<View style={STARTGIG.ratingWrapper}>
-					<Text style={STARTGIG.rating}>Rating goes here</Text>
+					<View style={STARTGIG.rating}>
+						<Text>R</Text>
+					</View>
 				</View>
-				<Text>Route:</Text>
-				<Text>Turku–Helsinki</Text>
-				<Text>Pickup time 00:00–14:00</Text>
-				<Text>Delivery time 00:00–14:00</Text>
-				<Text>Pay: 69eur</Text>
-				<Text>Fuel budget 69eur</Text>
-				<Text>Client name</Text>
+				<View style={[STARTGIG.textWrapper]}>
+					<View style={[STARTGIG.section, { justifyContent: "center" }]}>
+						<Text style={ELSTYLES.titleL}>Route:</Text>
+						<Text style={ELSTYLES.titleLlight}>Turku–Helsinki</Text>
+					</View>
+					<View style={[STARTGIG.section, { justifyContent: "space-evenly" }]}>
+						<Text style={ELSTYLES.txtAlt}>Pickup time 00:00–14:00</Text>
+						<Text style={ELSTYLES.txtAlt}>Delivery time 00:00–14:00</Text>
+						<Text style={ELSTYLES.txtAlt}>Pay: 69eur</Text>
+					</View>
+					<View style={[STARTGIG.section, { justifyContent: "space-evenly" }]}>
+						<Text style={ELSTYLES.txtAlt}>Fuel budget 69eur</Text>
+						<Text style={ELSTYLES.txtAlt}>Client name</Text>
+					</View>
+				</View>
+
 				<View style={STARTGIG.buttonWrapper}>
-					<Pressable>
-						<Text>Start</Text>
+					<Pressable style={[ELSTYLES.buttonAlt, STARTGIG.buttonStart]}>
+						<Text style={ELSTYLES.buttonAltTxt}>Start</Text>
 					</Pressable>
 
-					<Pressable>
-						<Text>Contact info</Text>
+					<Pressable style={[ELSTYLES.buttonAlt, STARTGIG.buttonStart]}>
+						<Text style={ELSTYLES.buttonAltTxt}>Contact info</Text>
 					</Pressable>
 				</View>
 			</View>
