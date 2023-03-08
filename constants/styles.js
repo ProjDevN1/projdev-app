@@ -61,6 +61,22 @@ export const ELSTYLES = StyleSheet.create({
 		color: colorBase,
 		marginBottom: 16,
 	},
+
+	titleL: {
+		fontFamily: fontMedium,
+		fontSize: fsL,
+		color: colorBase,
+	},
+	titleLlight: {
+		fontFamily: fontLight,
+		fontSize: fsL,
+		color: colorBase,
+	},
+	titleXL: {
+		fontFamily: fontMedium,
+		fontSize: fsXL,
+		color: colorBase,
+	},
 	titleSm: {
 		fontFamily: fontMedium,
 		fontSize: fsL,
@@ -73,6 +89,10 @@ export const ELSTYLES = StyleSheet.create({
 
 	txt: {
 		fontSize: fsSm,
+	},
+	txtAlt: {
+		color: colorBase,
+		font: fontMedium,
 	},
 	label: {
 		fontFamily: font,
@@ -106,6 +126,26 @@ export const ELSTYLES = StyleSheet.create({
 		color: colorDark,
 		marginVertical: 4,
 	},
+	buttonAlt: {
+		backgroundColor: colorAlt,
+		borderRadius: borderRadius,
+		borderColor: colorDark,
+		borderWidth: 2,
+		color: colorDark,
+		marginVertical: 4,
+	},
+	buttonRound: {
+		backgroundColor: colorBase,
+		borderRadius: 40,
+		borderColor: colorAccent,
+		borderWidth: 2,
+		color: colorDark,
+		width: 50,
+		height: 50,
+		justifyContent: "center",
+		alignItems: "center",
+		margin: 4,
+	},
 	buttonPressed: {
 		backgroundColor: colorAccent,
 		borderRadius: borderRadius,
@@ -117,6 +157,11 @@ export const ELSTYLES = StyleSheet.create({
 	buttonTxt: {
 		font: font,
 		color: colorAccent,
+	},
+	buttonAltTxt: {
+		font: fontBold,
+		color: colorAccent,
+		fontSize: fsM,
 	},
 	buttonTxtPressed: {
 		font: font,
@@ -324,31 +369,59 @@ export const STARTGIG = StyleSheet.create({
 	infoWrapper: {
 		flex: 1,
 		justifyContent: "space-between",
-		padding: 24,
+		paddingBottom: 24,
+		paddingLeft: 24,
+		paddingRight: 24,
+		borderColor: colorDark,
+		borderTopWidth: 4,
 	},
 
 	infoBtnWrapper: {
-		backgroundColor: "red",
 		position: "absolute",
+		flex: 1,
+		flexDirection: "row",
 		right: 0,
 	},
 
 	ratingWrapper: {
 		position: "absolute",
-		top: 0,
-		left: 0,
-		right: 0,
-		justifyContent: "center",
-		alignItems: "center",
+		top: -60,
+		right: 20,
 	},
 
 	rating: {
-		backgroundColor: colorBase,
+		width: 120,
+		height: 120,
+		borderRadius: 60,
+		borderColor: colorDark,
+		borderWidth: 4,
+		backgroundColor: colorAlt,
+		justifyContent: "center",
+		alignItems: "center",
 	},
 
 	buttonWrapper: {
 		width: "100%",
 		flexDirection: "row",
-		justifyContent: "space-evenly",
+		justifyContent: "space-around",
+	},
+
+	buttonStart: {
+		flex: 1,
+		margin: 4,
+		height: 50,
+		justifyContent: "center",
+		alignItems: "center",
+	},
+	textWrapper: {
+		flex: 1,
+		justifyContent: "space-between",
+		margin: 4,
+		paddingTop: 4,
+		paddingBottom: 4,
+	},
+	section: {
+		flex: 1,
+		justifyContent: "flex-start",
 	},
 });
