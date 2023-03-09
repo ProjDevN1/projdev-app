@@ -1,8 +1,9 @@
-import { Text, View, SafeAreaView } from 'react-native'
+import { Text, View, SafeAreaView, Pressable } from 'react-native'
 import React, { useState } from 'react'
 
 
 import { tempGetGig } from '../api/api.js'
+import { getCurrentTimeAndDate } from '../api/DataHandling.js' //IRA'S TEST THINGY 
 
 
 //In progress
@@ -24,6 +25,11 @@ export default function DatabaseTestingScreen() {
         <Text>Screen in progress, will add functionality as needed</Text>
         <Text>Under here is fetched start location from gig_1</Text>
         <Text>{data.startLocation}</Text>
+        <Pressable onPress={() => getCurrentTimeAndDate()}>
+					<Text>IRA'S TEST PRESSABLE (don't remove pls)</Text>
+				</Pressable>
     </SafeAreaView>
   )
 }
+
+
