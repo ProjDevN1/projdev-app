@@ -1,12 +1,12 @@
-//A code to get the current time
+//A code to get the current date
 //Will prolly change because I didn't know which format these are wanted
 //Also must test later that it doesn't take the time from computer clock
 //By Ira
 
-function getCurrentTimeAndDate() {  
+function getCurrentDate() {  
     const utcDate = new Date();
 
-    const year = (utcDate.getFullYear()).toString();  //returns "2023"
+    const year = (utcDate.getFullYear()).toString();    //returns "2023"
 
     var month = (utcDate.getMonth()).toString();    //returns the month as a number
     if (month.length == 1) {                        //Add zero before the number to get proper format
@@ -17,6 +17,20 @@ function getCurrentTimeAndDate() {
     if (day.length == 1) {
         day = "".concat("0", day);
     }
+
+    const date = year + month + day; //date in YYYYMMDD format
+   
+    console.log(date); //For test purposes
+   
+    return {date}; 
+}
+
+export { getCurrentDate }
+
+//A code to get the current time
+//By Ira
+function getCurrentTime() {
+    const utcDate = new Date();
 
     var hour = (utcDate.getHours()).toString(); //returns the hour in a 24-hour format
     if (hour.length == 1) {
@@ -33,13 +47,11 @@ function getCurrentTimeAndDate() {
         second = "".concat("0", second);
     }
 
-    const date = year + month + day;
-    const time = hour + ":" + minute + ":" + second;
+    const time = hour + ":" + minute + ":" + second; //Time in HH:MM:SS format
 
-    //console.log(date); //For test purposes only
-    //console.log(time);
+    console.log(time); //for test purposes
 
-    return {date, time}; //Is this how you can return both variables? 
+    return {time}; 
 }
 
-export { getCurrentTimeAndDate }
+export { getCurrentTime }

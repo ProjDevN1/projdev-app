@@ -1,5 +1,6 @@
-import { doc, getDoc } from 'firebase/firestore'
+import { collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore'
 import { db } from '../firebaseConfig.js'
+import { getCurrentTime, getCurrentDate } from './DataHandling.js'
 
 // FOR FUNCTIONS THAT START WITH TEMP:
 // Only used in database testing, no not make any actual app logic rely on them
@@ -25,3 +26,20 @@ async function tempGetGig(){
 
 //Exports the functions
 export { tempGetGig }
+
+
+//A function to get gigs from the DB that are NOT completed
+//@Ira
+async function getOngoingGigs() { //Return gigs in an arraylist
+    var gigArray = [];
+    const q = query(collection(db, 'gigs'), where ("completed", "==", false)); //Filters gigs that are already done
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        gigArray.push(doc.data()); //Append gigs to gigArray-list
+        //console.log(doc.id, "=>", doc.data()); //for testing purposes
+        //console.log(gigArray);   
+});
+
+}
+
+export { getOngoingGigs }
