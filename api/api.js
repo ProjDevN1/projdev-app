@@ -42,6 +42,7 @@ async function getUser(){
 function formatActiveGigsData(gigsData, id){
     const ITEM = {
         id: id,
+        title: `${gigsData.startLocation} - ${gigsData.endLocation}`,
         leaveTime:  `Leave between ${gigsData.startTime}`,
         arrivalTime:  `Arrival between ${gigsData.endTime}`,
         vehicle: gigsData.vehicle,
@@ -54,6 +55,8 @@ function formatActiveGigsData(gigsData, id){
     return ITEM
 }
 
+
+var activeGigsData = []
 //Gets an array of user_1 active gigs. When user switching is completed, will change it to get active gigs of current user
 async function getActiveGigs(){
 
@@ -66,6 +69,7 @@ async function getActiveGigs(){
         const gigSnapshot = await getDoc(doc(db, 'gigs', value))
         const formattedGigs = formatActiveGigsData(gigSnapshot.data(), id)
         activeGigs.push(formattedGigs)
+        activeGigsData.push(formattedGigs)
         id += 1
     }
     
@@ -75,10 +79,11 @@ async function getActiveGigs(){
     const activeGigsPerUser = users[0].gigsActive
     
     //Checks if users active gigs array is not empty, if it's not then runs the getGig function for all of them
-    if (activeGigsPerUser.length < 0){
+    if (activeGigsPerUser.length === 0){
         return 'No active gigs'
     } else {
         await activeGigsPerUser.forEach(getGig)
+        console.log('Active gigs data fetched')
         return activeGigs
     }
 }
@@ -101,4 +106,4 @@ async function getOngoingGigs() { //Return gigs in an arraylist
 }
 
 //Export non-temp functions here
-export { getOngoingGigs, getUser, getActiveGigs }
+export { getOngoingGigs, getUser, getActiveGigs, activeGigsData }
