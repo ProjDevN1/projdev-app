@@ -1,3 +1,4 @@
+
 //A code to get the current date
 //Will prolly change because I didn't know which format these are wanted
 //Also must test later that it doesn't take the time from computer clock
@@ -24,8 +25,6 @@ function getCurrentDate() {
    
     return {date}; 
 }
-
-export { getCurrentDate }
 
 //A code to get the current time
 //By Ira
@@ -54,4 +53,6 @@ function getCurrentTime() {
     return {time}; 
 }
 
-export { getCurrentTime }
+
+//Export functions here
+export { getCurrentTime, getCurrentDate }
