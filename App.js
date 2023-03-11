@@ -27,6 +27,10 @@ import GigStart from "./screens/GigStartScreen";
 import DatabaseTestingScreen from "./screens/DatabaseTestingScreen";
 
 
+//Imports and executes the getActiveGigs funtion, so that ActiveGigsScreen does not need to wait for data fetching to happen
+import { getActiveGigs } from './api/api'
+getActiveGigs()
+
 
 //Initializes the stack navigator module, used to navigate between screens
 const Stack = createNativeStackNavigator();
