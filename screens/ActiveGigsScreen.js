@@ -47,7 +47,7 @@ function List() {
     )
   }
 }
-
+console.log(activeGigsData)
 
 const ActiveGigsScreen = ({navigation}) => {
 

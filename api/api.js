@@ -1,6 +1,7 @@
 import { collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore'
 import { db } from '../firebaseConfig.js'
 import { getCurrentTime, getCurrentDate } from './DataHandling.js'
+import React, { useState } from 'react'
 
 // FOR FUNCTIONS THAT START WITH TEMP:
 // Only used in database testing, no not make any actual app logic rely on them
@@ -70,6 +71,18 @@ function formatActiveGigsData(gigsData, id){
     return ITEM
 }
 
+function formatAvailableGigsData(aGigsData, id) {
+    const ITEM = {
+        id: id, 
+        startLocation: `From ${aGigsData.startLocation}`,
+        endLocation: `To ${aGigsData.endLocation}`,
+        reward: aGigsData.reward,
+        startTime: aGigsData.startTime,
+        endTime: aGigsData.endTime,
+    }
+    return ITEM
+}
+
 //This stores current users active gigs, so that asctivegigslist does not need to load the data on layout
 var activeGigsData = []
 //Gets an array of user_1 active gigs. When user switching is completed, will change it to get active gigs of current user
@@ -100,7 +113,9 @@ async function getActiveGigs(){
         console.log('Active gigs data fetched')
         activeGigsData = activeGigs
         return activeGigs
-    }
+        
+        
+    } 
 }
 
 
@@ -108,17 +123,21 @@ async function getActiveGigs(){
 
 //A function to get gigs from the DB that are NOT completed
 //@Ira
+var availableGigsData = []
+
 async function getOngoingGigs() { //Return gigs in an arraylist
-    var gigArray = [];
+    const gigArray = []
+
+
     const q = query(collection(db, 'gigs'), where ("completed", "==", false)); //Filters gigs that are already done
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {
         gigArray.push(doc.data()); //Append gigs to gigArray-list
-        //console.log(doc.id, "=>", doc.data()); //for testing purposes
-        //console.log(gigArray);   
+       // console.log(doc.id, "=>", doc.data()); //for testing purposes
+    availableGigsData = gigArray
 });
-
+//console.log(availableGigsData)
 }
 
 //Export non-temp functions and data here
-export { getOngoingGigs, getUser, getActiveGigs, activeGigsData, currentUser, switchUser }
+export { getOngoingGigs, getUser, getActiveGigs, activeGigsData, currentUser, switchUser, availableGigsData }
