@@ -17,8 +17,6 @@ async function tempGetGig(){
     //Gets a copy of the file specified in the reference
     const docData = await getDoc(docRef)
 
-    //Logs the fact that data was indeed fetched
-    console.log('Data fetched')
 
     //Returns the data contained in the document. The .data() function is necessary
     return docData.data()
@@ -27,15 +25,32 @@ async function tempGetGig(){
 //Export the temp functions here
 export { tempGetGig }
 
-
-//Gets all users as an array and reuturns it. Very much work in progress
+//This stores the current user so that other functions can use it
+var currentUser = ''
+//This stores all users so user switching remembers which order it should do it
+var allUsers = []
+//Gets all users as an array and returns it. Very much work in progress
 async function getUser(){
     var users = []
     const usersSnapshot = await getDocs(collection(db, 'users'))
     usersSnapshot.forEach((doc) => {
         users.push(doc.data())
     })
+    currentUser = users[0]
+    if (allUsers.length === 0){
+        allUsers = users
+    }
+    console.log(`Current user: ${currentUser.name}`)
     return users
+}
+
+//Switches the current user by shfting the next user in the allUsers array to position[0] and makes it the new current user
+async function switchUser(){
+    const u = allUsers.shift()
+    allUsers.push(u)
+    currentUser = allUsers[0]
+    getActiveGigs()
+    console.log(`Current user: ${currentUser.name}`)
 }
 
 //Edits the required data in correct format for activegigslist screen
@@ -55,7 +70,7 @@ function formatActiveGigsData(gigsData, id){
     return ITEM
 }
 
-
+//This stores current users active gigs, so that asctivegigslist does not need to load the data on layout
 var activeGigsData = []
 //Gets an array of user_1 active gigs. When user switching is completed, will change it to get active gigs of current user
 async function getActiveGigs(){
@@ -69,21 +84,21 @@ async function getActiveGigs(){
         const gigSnapshot = await getDoc(doc(db, 'gigs', value))
         const formattedGigs = formatActiveGigsData(gigSnapshot.data(), id)
         activeGigs.push(formattedGigs)
-        activeGigsData.push(formattedGigs)
         id += 1
     }
     
-    //Gets user specified by the getUser function
-    const users = await getUser()
     //Gets users active gigs array
-    const activeGigsPerUser = users[0].gigsActive
+    const activeGigsPerUser = currentUser.gigsActive
     
     //Checks if users active gigs array is not empty, if it's not then runs the getGig function for all of them
     if (activeGigsPerUser.length === 0){
+        var arr = []
+        activeGigsData = arr
         return 'No active gigs'
     } else {
         await activeGigsPerUser.forEach(getGig)
         console.log('Active gigs data fetched')
+        activeGigsData = activeGigs
         return activeGigs
     }
 }
@@ -105,5 +120,5 @@ async function getOngoingGigs() { //Return gigs in an arraylist
 
 }
 
-//Export non-temp functions here
-export { getOngoingGigs, getUser, getActiveGigs, activeGigsData }
+//Export non-temp functions and data here
+export { getOngoingGigs, getUser, getActiveGigs, activeGigsData, currentUser, switchUser }

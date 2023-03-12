@@ -1,4 +1,4 @@
-import { View, Text, Pressable, SafeAreaView, Button, FlatList } from 'react-native'
+import { View, Text, Pressable, SafeAreaView, FlatList } from 'react-native'
 import React, { useState } from 'react'
 
 import { STYLES } from '../constants/styles'
@@ -20,12 +20,15 @@ const Item = ({title, addInfo, arrivalAddress, arrivalTime, estimatedTime, leave
   </SafeAreaView>
 )
 
-//Currently has no way to inform user if there is no active gigs
 
-const ActiveGigsScreen = ({navigation}) => {
-  return (
-
-    <SafeAreaView>
+//This has the frontend code that shows either a list of active gigs or a text thing. Style accordingly
+function List() {
+  if (activeGigsData.length === 0) {
+    return(
+      <Text>No active gigs</Text>
+    )
+  } else {
+    return(
       <FlatList
         data={activeGigsData}
         renderItem={({item}) => <Item 
@@ -41,6 +44,21 @@ const ActiveGigsScreen = ({navigation}) => {
         />}
         keyExtractor={item => item.id}
       />
+    )
+  }
+}
+
+
+const ActiveGigsScreen = ({navigation}) => {
+
+  //The List component is the function above. It returns the forntend code for active gigs list if there are active gigs
+  //Otherwise just returns text component telling the user that no gigs are active
+  return (
+
+    <SafeAreaView>
+
+      
+      <List/>
 
       <Pressable style= {STYLES.button} onPress={() => navigation.navigate('GigList')}>
            <Text style={{color: 'black', height: 20, width: 50, marginVertical: 20}}> Search </Text>

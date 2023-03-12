@@ -27,10 +27,14 @@ import GigStart from "./screens/GigStartScreen";
 import DatabaseTestingScreen from "./screens/DatabaseTestingScreen";
 
 
-//Imports and executes the getActiveGigs funtion, so that ActiveGigsScreen does not need to wait for data fetching to happen
-import { getActiveGigs } from './api/api'
-getActiveGigs()
+//Imports and executes the getActiveGigs and getUser funtions, so that ActiveGigsScreen does not need to wait for data fetching to happen
+import { getActiveGigs, getUser } from './api/api'
 
+async function initializeData() {
+	await getUser()
+	await getActiveGigs()
+}
+initializeData()
 
 //Initializes the stack navigator module, used to navigate between screens
 const Stack = createNativeStackNavigator();

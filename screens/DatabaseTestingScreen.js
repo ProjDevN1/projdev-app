@@ -4,34 +4,29 @@ import React, { useState } from 'react'
 
 import { tempGetGig } from '../api/api.js'
 import { getCurrentTime, getCurrentDate } from '../api/DataHandling.js' //IRA'S TEST THINGY 
-import { getOngoingGigs, getUser } from '../api/api.js'
+import { getOngoingGigs, currentUser, switchUser } from '../api/api.js'
 
 
 //In progress
 
 export default function DatabaseTestingScreen() {
   const [data, setData] = useState('')
-  const [users, setUsers] = useState('');
-  const [currentUser, setCurrentUser] = useState('');
+  const [currentUserName, setCurrentUserName] = useState('');
 
     //Gets data for users (and temporarily a gig thing)
     async function getData(){
       const gigData = await tempGetGig()
 
-      const usersFromDb = await getUser();
-
-      setUsers(usersFromDb)
-
-      setCurrentUser(usersFromDb[0])
+      setCurrentUserName(currentUser)
       
       setData(gigData)
     }
 
     //Switches the current user, only works locally atm
     function switchCurrentUser(){
-      const u = users.shift()
-      users.push(u)
-      setCurrentUser(users[0])
+      switchUser();
+      setCurrentUserName(currentUser)
+      
     }
 
 
@@ -52,7 +47,7 @@ export default function DatabaseTestingScreen() {
 
         <SafeAreaView style={{marginTop: 20, backgroundColor: '#CCC9E7'}}>
           <Text>Currently active user: (Default = user_1)</Text>
-          <Text>{currentUser.name}</Text>
+          <Text>{currentUserName.name}</Text>
           <Button title='Switch user' onPress={switchCurrentUser}></Button>
         </SafeAreaView>
 
