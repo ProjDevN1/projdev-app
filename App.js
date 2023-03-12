@@ -23,16 +23,18 @@ import ForgotPassword from "./screens/ForgotPasswordScreen";
 import GigApply from "./screens/GigApplyScreen";
 import GigStart from "./screens/GigStartScreen";
 
+
 //Temporary screen for backend work
 import DatabaseTestingScreen from "./screens/DatabaseTestingScreen";
 
 
 //Imports and executes the getActiveGigs and getUser funtions, so that ActiveGigsScreen does not need to wait for data fetching to happen
-import { getActiveGigs, getUser } from './api/api'
+import { getActiveGigs, getUser, getOngoingGigs } from './api/api'
 
 async function initializeData() {
 	await getUser()
 	await getActiveGigs()
+	await getOngoingGigs()
 }
 initializeData()
 

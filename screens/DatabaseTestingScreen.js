@@ -1,4 +1,4 @@
-import { Text, View, SafeAreaView, Pressable, Button } from 'react-native'
+import { Text, View, SafeAreaView, Pressable, Button, SectionList } from 'react-native'
 import React, { useState } from 'react'
 
 
@@ -9,7 +9,10 @@ import { getOngoingGigs, currentUser, switchUser } from '../api/api.js'
 
 //In progress
 
+
 export default function DatabaseTestingScreen() {
+
+
   const [data, setData] = useState('')
   const [currentUserName, setCurrentUserName] = useState('');
 
@@ -50,6 +53,9 @@ export default function DatabaseTestingScreen() {
           <Text>{currentUserName.name}</Text>
           <Button title='Switch user' onPress={switchCurrentUser}></Button>
         </SafeAreaView>
+
+        <Button title="Get gigs" onPress={getOngoingGigs}></Button>
+
 
     </SafeAreaView>
   )
