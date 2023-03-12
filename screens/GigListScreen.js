@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { STYLES } from '../constants/styles'
 import { availableGigsData } from '../api/api'
 
-const Item = ({gig_id, startCity, endCity, reward, date, startTime, endTime}) => {
+const Item = ({gig_id, startCity, endCity, reward, date, startTime, endTime}) => (
   <SafeAreaView>
     <Text>{date}</Text>
     <Text>{startCity}</Text>
@@ -13,7 +13,7 @@ const Item = ({gig_id, startCity, endCity, reward, date, startTime, endTime}) =>
     <Text>{startTime}</Text>
     <Text>{endTime}</Text>
   </SafeAreaView>
-}
+)
 
 
 function List() {
